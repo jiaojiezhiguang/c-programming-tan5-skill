@@ -45,3 +45,8 @@ desktop.ini
 *.tmp
 *.bak
 *.log
+
+# === 编译产物 ===
+*.out
+*.exe
+homework/sequence_sort
