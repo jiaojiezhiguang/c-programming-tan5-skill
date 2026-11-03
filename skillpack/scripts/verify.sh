@@ -44,13 +44,35 @@ done
 FAIL=0
 say() { :; }
 
+# 自动识别布局：发布包（docs/ 与 scripts/ 同级）或 Git 仓库（scripts/ 在 skillpack/ 下）
+ROOT="$(cd "$PKG_DIR/.." && pwd)"
+if [[ -d "$PKG_DIR/docs" ]]; then
+  LAYOUT="release"; DOCS="$PKG_DIR"
+elif [[ -d "$ROOT/docs" ]]; then
+  LAYOUT="repo";    DOCS="$ROOT"
+else
+  LAYOUT="unknown"; DOCS="$PKG_DIR"
+fi
+
+echo ""
+if [[ "$LAYOUT" == "repo" ]]; then
+  echo "${c_d}检测到 Git 仓库布局：docs/ 在上级目录，校验按仓库结构进行${c_reset}"
+fi
+
 echo ""
 echo "${c_b}[1/4] 包本体结构${c_reset}"
-for d in pack single docs scripts; do
+for d in pack single scripts; do
   [[ -d "$PKG_DIR/$d" ]] && ok "$d/" || { bad "缺少 $d/"; FAIL=1; }
 done
-for f in README.md INSTALL.md LICENSE-NOTICE.md SKILLPACK.json; do
+[[ -d "$DOCS/docs" || -d "$PKG_DIR/docs" ]] && ok "docs/" || { bad "缺少 docs/"; FAIL=1; }
+for f in INSTALL.md SKILLPACK.json; do
   [[ -f "$PKG_DIR/$f" ]] && ok "$f" || { bad "缺少 $f"; FAIL=1; }
+done
+# 说明类文件：仓库布局下在根目录
+for f in README.md LICENSE-NOTICE.md; do
+  if [[ -f "$PKG_DIR/$f" ]]; then ok "$f"
+  elif [[ -f "$ROOT/$f" ]]; then ok "$f ${c_d}(上级目录)${c_reset}"
+  else bad "缺少 $f"; FAIL=1; fi
 done
 
 echo ""
@@ -80,13 +102,18 @@ S_CARDS=$(find "$PKG_DIR/single/c-programming-tan5/references/capabilities" -nam
 
 echo ""
 echo "${c_b}[4/4] 文件校验和${c_reset}"
+# 两种布局的 MANIFEST 路径格式不同：
+#   release → 相对 PKG_DIR（如 ./pack/...）
+#   repo    → 相对仓库根（如 skillpack/pack/...）
 if [[ -f "$PKG_DIR/MANIFEST.sha256" ]]; then
-  if ( cd "$PKG_DIR" && shasum -a 256 -c MANIFEST.sha256 --quiet ) 2>/dev/null; then
-    N=$(wc -l < "$PKG_DIR/MANIFEST.sha256" | tr -d ' ')
+  MANIFEST="$PKG_DIR/MANIFEST.sha256"
+  if [[ "$LAYOUT" == "repo" ]]; then BASEDIR="$ROOT"; else BASEDIR="$PKG_DIR"; fi
+  if ( cd "$BASEDIR" && shasum -a 256 -c "$MANIFEST" --quiet ) 2>/dev/null; then
+    N=$(wc -l < "$MANIFEST" | tr -d ' ')
     ok "全部通过（$N 个文件）"
   else
     bad "有文件校验失败（包可能被修改或损坏）"
-    ( cd "$PKG_DIR" && shasum -a 256 -c MANIFEST.sha256 2>&1 | grep -E 'FAILED|失败' | head -10 )
+    ( cd "$BASEDIR" && shasum -a 256 -c "$MANIFEST" 2>&1 | grep -E 'FAILED|失败' | head -10 )
     FAIL=1
   fi
 else
