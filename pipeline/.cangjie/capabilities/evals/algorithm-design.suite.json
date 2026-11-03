@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.algorithm-design",
+  "target": "algorithm-design",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "拿到一道编程题完全不知道从哪下手",
+      "expected": "should_trigger",
+      "expected_behavior": "按问题分析→顶层设计→逐层细化→模块划分给出流程"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "我的主函数写了三百多行，怎么拆",
+      "expected": "should_trigger",
+      "expected_behavior": "用自顶向下逐步细化 + 模块化（≤50行/低耦合）给拆分方案"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "画算法图该用流程图还是N-S图还是伪代码",
+      "expected": "should_trigger",
+      "expected_behavior": "按设计期/定稿期/交付期给选型依据与优劣"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": "这段代码重复了二十遍，能不能改成循环",
+      "expected": "should_trigger",
+      "expected_behavior": "先找规律再改写成循环（循环归纳）"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "一个循环里要提前跳出，老师说这不算结构化，怎么改",
+      "expected": "should_trigger",
+      "expected_behavior": "引入标志变量收敛多出口，改为单出口循环+后续选择"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "while 和 do-while 到底有什么区别",
+      "expected": "sibling",
+      "expected_behavior": "应触发控制结构能力",
+      "sibling_target": "control-flow"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "数组名是指针吗",
+      "expected": "sibling",
+      "expected_behavior": "应触发指针能力",
+      "sibling_target": "pointer-model"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "帮我用 C 写一个 HTTP 服务器",
+      "expected": "should_not_trigger",
+      "expected_behavior": "超出原书范围（网络编程）"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "我还没想清楚要做什么功能，先写写看",
+      "expected": "should_trigger",
+      "expected_behavior": "应激活并建议先做原型验证需求、再回到自上而下设计（本能力 B 段已覆盖）"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "这段代码怎么优化才能跑得更快",
+      "expected": "edge_case",
+      "expected_behavior": "性能优化超出原书范围，不应激活设计流程"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "帮我用 Rust 设计一个状态机",
+      "expected": "edge_case",
+      "expected_behavior": "跨语言与系统设计，超出原书范围，不应激活"
+    }
+  ]
+}

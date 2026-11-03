@@ -1,0 +1,18 @@
+{
+  "suite_id": "suite.algorithm-design",
+  "seed": 42,
+  "train": [
+    "should-not-trigger-01",
+    "should-trigger-04",
+    "should-trigger-03",
+    "edge-01",
+    "sibling-01",
+    "sibling-02"
+  ],
+  "validation": [
+    "edge-02",
+    "should-trigger-05",
+    "should-trigger-01",
+    "should-trigger-02"
+  ]
+}

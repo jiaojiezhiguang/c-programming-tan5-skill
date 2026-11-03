@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "name": "c-programming-tan5-skillpack",
+  "title": "C程序设计（第五版）· C 语言学习技能包",
+  "version": "1.0.1",
+  "created": "2026-11-03",
+  "host": "WorkBuddy AI",
+  "source_book": {
+    "title": "C程序设计（第五版）",
+    "author": "谭浩强",
+    "publisher": "清华大学出版社",
+    "year": 2017,
+    "isbn": "978-7-302-48144-7",
+    "standard": "C99"
+  },
+  "install_target": {
+    "project": "<工作目录>/.workbuddy-ai/skills/",
+    "user": "~/.workbuddy-ai/skills/",
+    "recommended": "project"
+  },
+  "forms": {
+    "pack": {
+      "entrypoints": [
+        "program-skeleton",
+        "algorithm-design",
+        "control-flow",
+        "array-and-string",
+        "function-and-recursion",
+        "pointer-model",
+        "c-programming-tan5-reference"
+      ],
+      "count": 7,
+      "files": 21,
+      "evaluation": {
+        "optimal_hit_pct": 91.7,
+        "reachable_pct": 100.0,
+        "sample": "20 条第三方独立出题 × 3 次采样"
+      },
+      "note": "推荐形态；占 7 个技能位"
+    },
+    "single": {
+      "entrypoints": [
+        "c-programming-tan5"
+      ],
+      "count": 1,
+      "files": 16,
+      "evaluation": {
+        "optimal_hit_pct": 80.0,
+        "reachable_pct": 100.0,
+        "sample": "同上"
+      },
+      "note": "低调形态；占 1 个技能位"
+    }
+  },
+  "mutually_exclusive": true,
+  "capabilities": [
+    {
+      "slug": "program-skeleton",
+      "title": "C 程序骨架与编译运行",
+      "importance": "critical",
+      "form": "promoted"
+    },
+    {
+      "slug": "algorithm-design",
+      "title": "算法先行：从任务到算法的设计流程",
+      "importance": "critical",
+      "form": "promoted"
+    },
+    {
+      "slug": "control-flow",
+      "title": "控制结构选型与陷阱",
+      "importance": "high",
+      "form": "promoted"
+    },
+    {
+      "slug": "array-and-string",
+      "title": "数组与字符串处理批量数据",
+      "importance": "high",
+      "form": "promoted"
+    },
+    {
+      "slug": "function-and-recursion",
+      "title": "函数、参数传递与递归",
+      "importance": "critical",
+      "form": "promoted"
+    },
+    {
+      "slug": "pointer-model",
+      "title": "指针：地址模型与间接访问",
+      "importance": "critical",
+      "form": "promoted"
+    },
+    {
+      "slug": "struct-and-linked-list",
+      "title": "结构体与链表",
+      "importance": "medium",
+      "form": "router"
+    },
+    {
+      "slug": "file-io",
+      "title": "文件读写：打开—读写—关闭",
+      "importance": "high",
+      "form": "router"
+    },
+    {
+      "slug": "debug-and-test",
+      "title": "调试与测试",
+      "importance": "high",
+      "form": "router"
+    },
+    {
+      "slug": "glossary",
+      "title": "术语速查（C 程序设计核心概念）",
+      "importance": "medium",
+      "form": "router"
+    }
+  ],
+  "out_of_scope": [
+    "现代工程实践：Makefile/CMake、版本控制、单元测试框架、sanitizer、静态分析",
+    "C11/C17/C23 新特性与 C++ 及其他语言",
+    "并发编程、网络编程、图形界面、数据库访问",
+    "真实工程规模的架构设计、需求变更管理、性能调优"
+  ],
+  "docs": {
+    "DIGEST.md": "6000+ 字精华长文",
+    "INDEX.md": "能力索引与意图映射",
+    "GLOSSARY.md": "75 条术语",
+    "BOOK_OVERVIEW.md": "整书理解与作者局限",
+    "EVALUATION.md": "完整评测报告，含全部修正记录"
+  },
+  "license": "见 LICENSE-NOTICE.md（个人/教学可用，商业分发需取得原书授权）",
+  "changelog": "v1.0.1: 修复 pointer-model 描述与 B 段的内存所有权矛盾；修复 7 处悬空 skill 名指引；修复 DIGEST/INDEX 死链"
+}

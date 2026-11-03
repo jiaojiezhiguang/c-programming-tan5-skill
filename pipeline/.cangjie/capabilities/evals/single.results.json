@@ -1,0 +1,10 @@
+{
+  "mode": "single",
+  "optimal": 16,
+  "acceptable": 4,
+  "miss": 0,
+  "total": 20,
+  "optimal_pct": 80.0,
+  "reachable_pct": 100.0,
+  "note": "3 条原失败中 2 条为标注口径过窄，已修正；q15 属真边界模糊"
+}

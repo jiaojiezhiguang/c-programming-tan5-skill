@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.array-and-string",
+  "target": "array-and-string",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "要存全班50个学生的成绩，怎么定义",
+      "expected": "should_trigger",
+      "expected_behavior": "给定长数组定义（符号常量长度）+ 下标0起遍历模板"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "我的数组好像越界了，结果总是差一位",
+      "expected": "should_trigger",
+      "expected_behavior": "判定下标从1开始/a[N]越界，给 for(i=0;i<N;i++) 模板"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "冒泡排序的内层循环条件为什么是 9-j",
+      "expected": "should_trigger",
+      "expected_behavior": "解释内层上界随外层递减：n-1 趟 / n-j 次"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": "字符串输出是一串乱码，是不是没加 '\\0'",
+      "expected": "should_trigger",
+      "expected_behavior": "检查容量≥字符数+1、是否写入结束标志"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "二维数组传给函数，第二维能不能省",
+      "expected": "should_trigger",
+      "expected_behavior": "第一维可省、第二维必须指定，给形参写法"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "数据量运行期才知道，能不能 int a[n]",
+      "expected": "should_trigger",
+      "expected_behavior": "按本书不合法；C99+ 支持变长数组；大数据量改 malloc"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "指针的基类型是什么意思",
+      "expected": "sibling",
+      "expected_behavior": "应触发指针能力",
+      "sibling_target": "pointer-model"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "switch 漏 break 会怎样",
+      "expected": "sibling",
+      "expected_behavior": "应触发控制结构能力",
+      "sibling_target": "control-flow"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "C++ 的 std::vector 怎么用",
+      "expected": "should_not_trigger",
+      "expected_behavior": "非 C 语言（C++ 容器）"
+    },
+    {
+      "case_id": "should-trigger-07",
+      "prompt": "怎么用动态数组实现不定长字符串",
+      "expected": "should_trigger",
+      "expected_behavior": "应激活：需 malloc 动态分配 + 字符指针；原书 §8.8 有动态内存分配基础，需说明超出定长数组范围"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "字符串加密解密怎么做",
+      "expected": "edge_case",
+      "expected_behavior": "超出原书范围（算法/加密）"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "C 语言怎么连接 MySQL 数据库",
+      "expected": "edge_case",
+      "expected_behavior": "数据库驱动与第三方库，超出原书范围，不应激活"
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+schema_version: 1
+bundle_id: bundle.c-programming-5th-tan
+book:
+  title: C程序设计（第五版）
+  author: 谭浩强
+  source_pack: cangjie-books/c-programming-5th-tan
+  baseline_tag: tan-c5-docx-2026-11-03
+
+entry:
+  name: c-programming-tan5
+  description: |
+    谭浩强《C程序设计（第五版）》蒸馏出的 C 语言编程能力包。覆盖从写第一个 C 程序、
+    设计算法、选择控制结构、用数组处理批量数据、设计函数与递归、理解指针地址模型，
+    到用结构体与文件组织数据，以及调试与测试的全链路。适用于 C 语言学习、作业求解、
+    代码排错与概念澄清；不适用于现代工程实践（构建系统、并发、第三方库）与 C++/其他语言。
+  core_principles:
+    - 程序 = 算法 + 数据结构；算法是灵魂，数据结构是加工对象，语言只是工具
+    - 先设计算法再编码，不要坐下来就写程序
+    - 任何复杂算法都由顺序、选择、循环三种基本结构嵌套组成，且必须单入口单出口
+    - 指针就是地址；地址是带类型的，所以指针必须指定基类型
+    - 实参向形参是单向值传递；要改调用者的变量必须传地址
+    - 程序能跑不等于正确；必须设计多组（含边界）数据测试
+  out_of_scope:
+    - 现代工程实践：Makefile/CMake、版本控制、单元测试框架、sanitizer、静态分析
+    - C11/C17/C23 新特性（_Generic、线程、原子操作）与 C++ 及其他语言
+    - 并发编程、网络编程、图形界面、数据库访问
+    - 真实工程规模的架构设计、需求变更管理、性能调优
+  stop_conditions:
+    - 用户问题涉及本书未覆盖的现代特性或工程实践时，说明超出范围并给出方向，不臆造答案
+    - 涉及指针解引用、动态内存写入等有破坏性风险的操作时，先确认指针有效性再给可执行代码
+    - 用户描述不足以判断输入输出契约时，先追问，不静默假设需求
+
+router_entry:
+  name: c-programming-tan5-reference
+  description: |
+    谭浩强《C程序设计（第五版）》的**结构体与链表、文件读写、调试与测试、术语速查**四类主题入口。
+    当用户问：怎么用 struct/typedef struct、. 与 -> 的区别、结构体数组排序、链表怎么建怎么遍历；
+    或问 C 怎么读写文件、fopen 返回 NULL、写完文件数据少了一截、feof/EOF 怎么用；
+    或问程序跑通了怎么确认对、该测哪些数据、怎么查偶发错误；
+    或问两个相近术语的区别（指针 vs 指针变量、define vs const、数组名算不算指针）时使用。
+    本入口内含全书 10 张能力卡，也可按主题查其它能力。
+
+promotion_budget: 8
+
+capabilities:
+  - capability_id: cap.c-programming-5th.program-skeleton
+    revision: 1
+    status: active
+    slug: program-skeleton
+    title: C 程序骨架与编译运行
+    importance: critical
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-01（写出能编译运行的程序骨架），是入门第一关；
+      task-07（诊断并修复错误）依赖本能力的「四步流水线 → 错误归类」映射。
+      读者任务清单 8 项中有 2 项直接命中，且是所有后续能力的前置。
+    one_liner: 先认清错误出现在编译期还是运行期，再决定改语法还是查逻辑。
+    intents:
+      - 写一个最简 C 程序并跑起来
+      - 看不懂编译报错，想知道错在哪一类
+      - 程序能编译但结果不对，想知道往哪查
+      - 想搞清 .c/.obj/.exe 与编译连接的关系
+    keywords: [C程序结构, include, main, 编译, 连接, 目标程序, 可执行程序, 语法错误, 逻辑错误, compile, link, undefined reference, 注释]
+    also_read: [debug-and-test, algorithm-design]
+    card: cards/program-skeleton.md
+    frontmatter:
+      description: |
+        当用户要写第一个 C 程序、问 C 程序基本结构、看不懂编译/连接报错、或程序能跑但结果不对
+        需要定位错误类型时使用。覆盖 #include/main/return 骨架、注释（// 与 /* */ 的区别与适用）、
+        预处理-编译-连接-运行四步流水线、语法错 vs 逻辑错 vs 运行时错（越界/野指针）的三类分诊与定位。
+        也适用于「程序有时能跑有时崩溃」这类需要先判断错误归属再转交具体主题的场合。
+        不适用于算法设计（用 algorithm-design）或指针语义本身（用 pointer-model）。
+      tags: [c, beginner, toolchain, error-diagnosis]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第1章 §1.4–§1.6
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 用户会不提书名直接问「C 程序怎么写/编译报错怎么办」，契约明确（源码或错误→归类+改法）
+
+  - capability_id: cap.c-programming-5th.algorithm-design
+    revision: 1
+    status: active
+    slug: algorithm-design
+    title: 算法先行：从任务到算法的设计流程
+    importance: critical
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-02（用流程图/N-S 图表达算法）与全书的编排主线
+      「先算法后编码」。原书前言明确把此作为教学指导思想，且是 task-03~task-06 的方法论前置。
+    one_liner: 先把任务拆成算法与模块再写代码；重复操作找规律改写为循环。
+    intents:
+      - 拿到编程题不知道从哪下手
+      - 主函数太长，想把大问题拆成模块
+      - 不知道该用流程图、N-S 图还是伪代码
+      - 一段重复操作想改写成循环但找不到规律
+    keywords: [算法, 程序设计过程, 结构化程序设计, 自顶向下, 逐步细化, 模块化, 流程图, N-S图, 伪代码, 循环归纳, 标志变量, top-down, pseudocode, flowchart]
+    also_read: [control-flow, program-skeleton]
+    card: cards/algorithm-design.md
+    frontmatter:
+      description: |
+        当用户拿到编程任务不知从何下手、需要做**模块划分**（这个程序该切成几块、按什么维度切、
+        每块职责是什么）、纠结流程图/N-S图/伪代码选型、或想把重复代码改写成循环时使用。
+        覆盖六阶段设计流程、自顶向下逐步细化、三种基本结构、标志变量收敛多出口、表示法选型与循环归纳。
+        「模块怎么切」由本能力负责；「函数本身怎么写」（参数、返回值、递归实现、值传递）请用
+        function-and-recursion；具体控制语句写法用 control-flow。
+      tags: [c, algorithm-design, structured-programming, decomposition]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第1章 §1.6；第2章 §2.1–§2.6
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 「这题怎么设计」是独立高频意图，产出契约是分析+算法+模块表，可脱离本书执行
+
+  - capability_id: cap.c-programming-5th.control-flow
+    revision: 1
+    status: active
+    slug: control-flow
+    title: 控制结构选型与陷阱
+    importance: high
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-03（选择正确控制结构实现逻辑），覆盖 if/switch 与
+      while/do-while/for 的选型及 6 类高频错误；是数组、函数、指针各章代码的正确性基础。
+    one_liner: 常量多分支用 switch、范围判断用 if；可能一次不执行用 while、至少一次用 do-while。
+    intents:
+      - 多分支该用 if 还是 switch
+      - while 和 do-while 该选哪个
+      - 程序死循环了
+      - 输入一个值却输出好几行（switch 穿透）
+      - else 到底跟哪个 if 配对
+    keywords: [if, switch, case, break, continue, while, do-while, for, 死循环, 悬空else, 穿透, fall-through, 循环嵌套]
+    also_read: [algorithm-design, array-and-string]
+    card: cards/control-flow.md
+    frontmatter:
+      description: |
+        当用户在 if/switch、while/do-while/for 之间选型，或遇到死循环、switch 漏 break 穿透、
+        悬空 else、循环体漏花括号、累加器未赋初值等问题时使用。不适用于算法整体设计
+        （用 algorithm-design）或数组越界（用 array-and-string）。
+      tags: [c, control-flow, selection, loop, pitfalls]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第4章 §4.1–§4.8；第5章 §5.1–§5.8
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 「if 还是 switch」「为什么死循环」是极高频独立提问，契约是选型结论+代码+自查清单
+
+  - capability_id: cap.c-programming-5th.array-and-string
+    revision: 1
+    status: active
+    slug: array-and-string
+    title: 数组与字符串处理批量数据
+    importance: high
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-04（用数组/字符串批量处理数据），覆盖第6章全部内容
+      与起泡排序；下标越界是 C 最高频错误，直接影响后续指针与结构体章节的正确性。
+    one_liner: 定义长度 N 就一律写 for(i=0;i<N;i++)，合法下标只到 N-1。
+    intents:
+      - 怎么存一批同类型数据
+      - 数组下标越界/结果差一位
+      - 冒泡排序怎么写
+      - 字符串输出乱码、'\0' 是什么
+      - 二维数组行列怎么用、传参第二维能不能省
+    keywords: [数组, 一维数组, 二维数组, 下标, 越界, 初始化, 字符数组, 字符串, 结束标志, 起泡排序, 冒泡排序, array, bubble sort, strcmp, strlen]
+    also_read: [control-flow, pointer-model]
+    card: cards/array-and-string.md
+    frontmatter:
+      description: |
+        当用户要存储处理一批同类型数据、遇到数组下标越界或差一位、需要**排序/查找/统计**（含
+        冒泡等排序算法的写法与边界条件）、或**因缺少 '\0' 导致的字符串乱码**（输出多一截、出现垃圾字符）、
+        二维数组行列或传参困惑时使用。注意：中文/全角字符显示为乱码属于源文件编码（GBK/UTF-8）问题，
+        不属本能力范围，应说明这是编码问题而非 '\0' 缺失。
+        凡问题围绕「一批数据怎么存、怎么按某种次序处理」都归本能力；若问题只是脱离数据的纯循环语法
+        （死循环、break/continue、for 三表达式）请用 control-flow；指针遍历数组的原理用 pointer-model。
+      tags: [c, array, string, sorting, off-by-one]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第6章 §6.1–§6.3
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 数组/字符串是独立高频主题，契约是定义+遍历+边界处理，可单独评测
+
+  - capability_id: cap.c-programming-5th.function-and-recursion
+    revision: 1
+    status: active
+    slug: function-and-recursion
+    title: 函数、参数传递与递归
+    importance: critical
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-05（设计可复用函数含递归）。原书第7章为独立一章，
+      且「形参改变不影响实参」是初学者最高频误解，直接决定能否正确使用指针参数。
+    one_liner: 想在函数里改调用者的变量，就传地址而不是传值。
+    intents:
+      - 主函数太长想把功能拆成函数
+      - 在函数里改了变量外面没变
+      - 分不清函数定义和声明
+      - 递归怎么写、在哪里停
+      - 递归和循环该用哪个
+      - 数组传进函数后被改掉了
+    keywords: [函数, 定义, 声明, 原型, 形参, 实参, 值传递, 返回值, 递归, 终止条件, 回溯, 递推, function, recursion, pass by value]
+    also_read: [pointer-model, algorithm-design]
+    card: cards/function-and-recursion.md
+    frontmatter:
+      description: |
+        当用户要把程序拆成函数、遇到「函数里改了变量外面没变」、分不清定义与声明、
+        写递归不知如何终止或纠结递归与循环选型、数组作参数被意外修改时使用。
+        不适用于指针地址模型的原理讲解（用 pointer-model）。
+      tags: [c, function, parameter-passing, recursion, modularity]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第7章 §7.1–§7.10
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 「函数传参为什么改不了实参」「递归怎么写」均为独立高频意图，契约明确
+
+  - capability_id: cap.c-programming-5th.pointer-model
+    revision: 1
+    status: active
+    slug: pointer-model
+    title: 指针：地址模型与间接访问
+    importance: critical
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-06（用指针理解与操作内存）。原书前言称指针是
+      "重点和难点，是作者下功夫最多的部分"，并明确「不掌握指针就是没有掌握 C 的精华」。
+    one_liner: 指针就是地址；地址带类型，所以指针必须指定基类型，且用前必须指向合法对象。
+    intents:
+      - 指针到底是什么、*p 和 &a 分别是什么
+      - 分不清指针和指针变量
+      - 为什么要指定基类型、p+1 为什么加4
+      - 程序随机崩溃或有野指针
+      - 函数传指针为什么能改实参
+    keywords: [指针, 指针变量, 地址, 基类型, 取地址, 解引用, 间接访问, 直接访问, 野指针, 空指针, "NULL", 带类型的地址, pointer, dereference, segmentation fault]
+    also_read: [function-and-recursion, array-and-string, struct-and-linked-list]
+    card: cards/pointer-model.md
+    frontmatter:
+      description: |
+        当用户问指针是什么、说不清 *p 与 &a、分不清指针与指针变量、不理解基类型与指针算术、
+        遇到野指针/空指针崩溃、想不通函数传指针为何能改实参、或问 **malloc/free 与内存泄漏**
+        （分配了没释放、程序退出时系统是否回收、为什么反复 malloc 会耗尽内存）时使用。
+        覆盖地址模型、带类型的地址、三概念区分、野指针三态与安全检查、动态分配的申请与释放。
+        不适用于链表等具体数据结构（请用 `c-programming-tan5-reference`，其中含结构体与链表能力卡）。
+      tags: [c, pointer, memory-model, safety]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第8章 §8.1–§8.9
+    promotion:
+      destination: promoted
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: true
+      notes: 本书招牌主题，独立意图极强，且可写出正/负/近邻/输出断言
+
+  - capability_id: cap.c-programming-5th.struct-and-linked-list
+    revision: 1
+    status: active
+    slug: struct-and-linked-list
+    title: 结构体与链表
+    importance: medium
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-08 的结构体部分。原书对链表只作简单介绍（前言说明
+      对非计算机专业"难度较大"），故重要性定为 medium，作为路由能力卡保留。
+    one_liner: 结构体类型不占空间、变量才占；链表尾结点 next 必须置 NULL。
+    intents:
+      - 一组不同类型的数据怎么组织
+      - struct 和 typedef struct 的写法
+      - . 和 -> 什么时候用
+      - 结构体数组怎么排序
+      - 链表怎么建、怎么遍历
+    keywords: [结构体, struct, typedef, 成员, 结构体数组, 结构体指针, 链表, 结点, next, 自引用结构, malloc, linked list]
+    also_read: [pointer-model, file-io]
+    card: cards/struct-and-linked-list.md
+    frontmatter:
+      description: |
+        当用户要把不同类型成员组成一个实体、写 struct/typedef struct、混淆 . 与 ->、
+        对结构体数组排序、或要建立与遍历链表时使用。不适用于指针地址模型本身
+        （用 pointer-model）。双向/循环链表与删除结点属扩展内容，需标注超出原书正文。
+      tags: [c, struct, linked-list, composite-data]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第9章 §9.1–§9.4
+    promotion:
+      destination: router
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: false
+        independent_eval: false
+      notes: 原书对链表仅简介、深度不足，且与 pointer-model 近邻竞争强，降为能力卡经路由入口访问
+
+  - capability_id: cap.c-programming-5th.file-io
+    revision: 1
+    status: active
+    slug: file-io
+    title: 文件读写：打开—读写—关闭
+    importance: high
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-08 的文件部分。原书「对使用本教材的建议」强调
+      "文件的概念是很重要的，宁可作简单的介绍，也不要放弃"，故保留且重要性定为 high。
+    one_liner: 打开必须判空、用完必须 fclose，否则缓冲区数据会丢。
+    intents:
+      - C 怎么读写文件
+      - fopen 返回 NULL / 打不开文件
+      - 写文件后数据少了一截
+      - 文本方式和二进制方式该用哪个
+      - feof 怎么用、EOF 是什么
+    keywords: [文件, fopen, fclose, 文件指针, FILE, 缓冲区, 文本文件, 二进制文件, fgetc, fputc, fscanf, fprintf, fread, fwrite, feof, EOF, rewind, file io]
+    also_read: [struct-and-linked-list, array-and-string]
+    card: cards/file-io.md
+    frontmatter:
+      description: |
+        当用户要让数据持久化到磁盘、处理已有文件、遇到 fopen 返回 NULL、写完文件数据丢失、
+        分不清文本与二进制方式、或不清楚 feof/EOF 用法时使用。覆盖打开判空-读写循环-必须关闭
+        三段流程与缓冲区语义。不适用于数据库或现代 IO 方案（超出原书范围）。
+      tags: [c, file-io, persistence, buffer]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第10章 §10.1–§10.5
+    promotion:
+      destination: router
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: true
+        independent_eval: false
+      notes: 有独立意图与契约，但触发面窄于指针/函数类，且评测断言偏环境依赖（需真实文件系统），先作能力卡
+
+  - capability_id: cap.c-programming-5th.debug-and-test
+    revision: 1
+    status: active
+    slug: debug-and-test
+    title: 调试与测试
+    importance: high
+    importance_rationale: |
+      对应 BOOK_OVERVIEW task-07（诊断并修复错误）的方法论层。原书 §1.6 明确区分
+      调试与测试，且把「常见错误分析」整章移入辅导书，说明其重要性但正文覆盖有限。
+    one_liner: 跑通一组数据不等于正确；必须测边界值。
+    intents:
+      - 程序跑通了是不是就没问题
+      - 结果不对怎么查
+      - 要测哪些数据
+      - 有时对有时错
+      - 调试和测试有什么区别
+    keywords: [调试, 测试, debug, test, 边界值, 测试用例, 逻辑错误, 语法错误, 回归, 定位]
+    also_read: [program-skeleton, control-flow]
+    card: cards/debug-and-test.md
+    frontmatter:
+      description: |
+        当用户不确定程序是否正确、结果不对不知从哪查、想知道该测哪些数据、
+        或遇到间歇性 bug 时使用。覆盖语法/逻辑/运行时三类错误定位、测试数据四类设计、
+        修复后全量回归。不适用于具体语法 bug 的修复（转对应主题能力）。
+      tags: [c, debugging, testing, quality]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 第1章 §1.5–§1.6
+    promotion:
+      destination: router
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: false
+        independent_eval: false
+      notes: 方法论偏薄（原书正文仅 §1.6 一节），且常被具体 bug 修复场景吸收，作能力卡保留
+
+  - capability_id: cap.c-programming-5th.glossary
+    revision: 1
+    status: active
+    slug: glossary
+    title: 术语速查（C 程序设计核心概念）
+    importance: medium
+    importance_rationale: |
+      服务的读者任务分散于全书各章（术语澄清不是独立任务，而是所有任务的支持性查询）；
+      按 importance_rationale 要求不以外观频次代替重要性，故定为 medium 并作路由能力卡。
+    one_liner: 指针≠指针变量、常量≠常变量、定义≠声明——先分清边界再谈用法。
+    intents:
+      - 某个术语到底指什么
+      - 两个相近概念的区别
+      - 数组名是指针吗
+      - define 和 const 有什么区别
+    keywords: [术语, 概念, 区别, 定义, 指针变量, 常变量, 符号常量, 声明, 形参, 实参, glossary, terminology]
+    also_read: [pointer-model, function-and-recursion, program-skeleton]
+    card: cards/glossary.md
+    frontmatter:
+      description: |
+        当用户被某个 C 术语卡住、需要区分相近概念（指针/指针变量、常量/常变量、定义/声明、
+        数组/指针）、或确认某个说法是否准确时使用。提供 70+ 条带出处定义与差异说明。
+        不适用于概念教学（转对应主题能力）或需要动手写代码的场景。
+      tags: [c, glossary, terminology, reference]
+    source_evidence:
+      - source_id: src-main-book
+        version_id: tan-c5-docx-2026-11-03
+        location: 全书各章（按条目标注）
+    promotion:
+      destination: router
+      gate:
+        independent_intent: true
+        independent_contract: true
+        independent_run: true
+        independent_reuse: false
+        independent_eval: false
+      notes: 是查询型支持能力而非独立任务能力；若单独晋级会与所有主题能力抢触发，故作能力卡

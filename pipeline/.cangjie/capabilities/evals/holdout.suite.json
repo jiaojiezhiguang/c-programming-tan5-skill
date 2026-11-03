@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.holdout",
+  "target": "c-programming-tan5-pack",
+  "trigger_cases": [
+    {
+      "case_id": "anchor",
+      "prompt": "x",
+      "expected": "should_trigger"
+    }
+  ],
+  "holdout_cases": [
+    {
+      "case_id": "h01",
+      "prompt": "printf 输出中文变成乱码了，是编码问题还是我写错了",
+      "expected_skill": "program-skeleton",
+      "expected_card": null
+    },
+    {
+      "case_id": "h02",
+      "prompt": "老师给的代码拷过来直接编译不通过，报 undefined reference to `sqrt'",
+      "expected_skill": "program-skeleton",
+      "expected_card": null
+    },
+    {
+      "case_id": "h03",
+      "prompt": "这题要统计一篇文章里每个单词出现几次，我完全没思路",
+      "expected_skill": "algorithm-design",
+      "expected_card": null
+    },
+    {
+      "case_id": "h04",
+      "prompt": "流程图里那个菱形和矩形分别代表什么，我不确定该画哪种",
+      "expected_skill": "algorithm-design",
+      "expected_card": null
+    },
+    {
+      "case_id": "h05",
+      "prompt": "case 后面能跟范围吗，比如 1 到 10",
+      "expected_skill": "control-flow",
+      "expected_card": null
+    },
+    {
+      "case_id": "h06",
+      "prompt": "do while 少写一个分号会怎样",
+      "expected_skill": "control-flow",
+      "expected_card": null
+    },
+    {
+      "case_id": "h07",
+      "prompt": "char s[3] = \"abc\"; 这样写会有什么问题",
+      "expected_skill": "array-and-string",
+      "expected_card": null
+    },
+    {
+      "case_id": "h08",
+      "prompt": "成绩数组排序后原来的下标顺序全乱了，我想知道排序后还能不能找回原来的名次",
+      "expected_skill": "array-and-string",
+      "expected_card": null
+    },
+    {
+      "case_id": "h09",
+      "prompt": "我的函数返回了一个局部数组，结果拿到的是垃圾值",
+      "expected_skill": "function-and-recursion",
+      "expected_card": null
+    },
+    {
+      "case_id": "h10",
+      "prompt": "汉诺塔讲了好几遍还是不懂为什么三步就完事了",
+      "expected_skill": "function-and-recursion",
+      "expected_card": null
+    },
+    {
+      "case_id": "h11",
+      "prompt": "两个指针相减得到的是什么，为什么不是字节差",
+      "expected_skill": "pointer-model",
+      "expected_card": null
+    },
+    {
+      "case_id": "h12",
+      "prompt": "malloc 之后没 free，程序结束系统会自己回收吗",
+      "expected_skill": "pointer-model",
+      "expected_card": null
+    },
+    {
+      "case_id": "h13",
+      "prompt": "typedef struct Node { int v; struct Node *next; } Node; 这里为什么要写两次 Node",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "h14",
+      "prompt": "union 里改一个成员，另一个成员为什么跟着变",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "h15",
+      "prompt": "fprintf 和 fwrite 到底该选哪个来存一批结构体",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "file-io"
+    },
+    {
+      "case_id": "h16",
+      "prompt": "rewind 和 fseek(fp,0,SEEK_SET) 是一回事吗",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "file-io"
+    },
+    {
+      "case_id": "h17",
+      "prompt": "怎么设计测试用例才能覆盖到循环一次都不跑的情况",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "debug-and-test"
+    },
+    {
+      "case_id": "h18",
+      "prompt": "编译器给了 warning 但程序能跑，要理它吗",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "debug-and-test"
+    },
+    {
+      "case_id": "h19",
+      "prompt": "const 修饰的变量和 #define 定义的常量，在内存上有什么不同",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "glossary"
+    },
+    {
+      "case_id": "h20",
+      "prompt": "左值和右值是什么意思，为什么 i++ = 3 不合法",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "glossary"
+    },
+    {
+      "case_id": "h21",
+      "prompt": "怎么写一个 C 的 WebSocket 服务端",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "h22",
+      "prompt": "C 语言里怎么做单元测试的 mock",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "h23",
+      "prompt": "Rust 的借用检查器和 C 的指针相比有什么优势",
+      "expected_skill": "none",
+      "expected_card": null
+    }
+  ]
+}

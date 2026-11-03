@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.router-reachability",
+  "target": "c-programming-tan5-reference",
+  "trigger_cases": [
+    {
+      "case_id": "anchor",
+      "prompt": "写个C程序",
+      "expected": "should_trigger"
+    }
+  ],
+  "router_cases": [
+    {
+      "case_id": "r-struct-01",
+      "prompt": "一组不同类型的数据怎么组织成一个整体？比如学生有学号姓名成绩",
+      "expected_router_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "r-struct-02",
+      "prompt": "结构体里用 . 还是 -> 取成员，我怎么老搞混",
+      "expected_router_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "r-struct-03",
+      "prompt": "想用链表存不确定个数的学生记录，怎么建",
+      "expected_router_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "r-file-01",
+      "prompt": "C 语言怎么把数据写到文件里再读出来",
+      "expected_router_card": "file-io"
+    },
+    {
+      "case_id": "r-file-02",
+      "prompt": "fopen 返回空指针是什么原因",
+      "expected_router_card": "file-io"
+    },
+    {
+      "case_id": "r-file-03",
+      "prompt": "文件写完了，程序退出后再打开发现末尾少了一段数据",
+      "expected_router_card": "file-io"
+    },
+    {
+      "case_id": "r-debug-01",
+      "prompt": "程序跑通了，但我怎么知道它是不是真的对",
+      "expected_router_card": "debug-and-test"
+    },
+    {
+      "case_id": "r-debug-02",
+      "prompt": "同样的输入，有时候结果对有时候不对，怎么查",
+      "expected_router_card": "debug-and-test"
+    },
+    {
+      "case_id": "r-gloss-01",
+      "prompt": "符号常量和常变量到底差在哪",
+      "expected_router_card": "glossary"
+    },
+    {
+      "case_id": "r-gloss-02",
+      "prompt": "数组名算指针吗",
+      "expected_router_card": "glossary"
+    },
+    {
+      "case_id": "r-neg-01",
+      "prompt": "指针的基类型是什么意思",
+      "expected_router_card": "pointer-model"
+    },
+    {
+      "case_id": "r-neg-02",
+      "prompt": "冒泡排序内层条件怎么写",
+      "expected_router_card": "array-and-string"
+    },
+    {
+      "case_id": "r-neg-03",
+      "prompt": "怎么用 C 调用 GPU 做并行计算",
+      "expected_router_card": "none"
+    }
+  ]
+}

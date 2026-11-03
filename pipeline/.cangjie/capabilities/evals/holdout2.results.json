@@ -1,0 +1,150 @@
+{
+  "passed": 15,
+  "total": 16,
+  "rows": [
+    {
+      "case": "g01",
+      "prompt": "终端里 printf 的中文全变成方块和问号了",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g02",
+      "prompt": "Linux 下编译运行正常，Windows 上中文输出是乱码",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g03",
+      "prompt": "malloc 申请的空间用完之后忘记 free 会怎样",
+      "exp_skill": "pointer-model",
+      "exp_card": null,
+      "got_skill": "pointer-model",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g04",
+      "prompt": "为什么我 fork 出来的子进程里 malloc 还能用",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g05",
+      "prompt": "一个 .c 文件里我写了两个 main 函数，会报什么错",
+      "exp_skill": "program-skeleton",
+      "exp_card": null,
+      "got_skill": "program-skeleton",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g06",
+      "prompt": "题目是判断一个数是不是回文数，我不知道该怎么拆步骤",
+      "exp_skill": "algorithm-design",
+      "exp_card": null,
+      "got_skill": "algorithm-design",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g07",
+      "prompt": "switch 里 default 是不是必须写",
+      "exp_skill": "control-flow",
+      "exp_card": null,
+      "got_skill": "control-flow",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g08",
+      "prompt": "统计字符串里有多少个大写字母，用数组还是直接遍历字符",
+      "exp_skill": "array-and-string",
+      "exp_card": null,
+      "got_skill": "array-and-string",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g09",
+      "prompt": "函数里定义的 static 变量为什么下次调用还保留上次的值",
+      "exp_skill": "function-and-recursion",
+      "exp_card": null,
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "function-and-recursion",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "g10",
+      "prompt": "char *p = \"hello\"; 能不能改 p[0]",
+      "exp_skill": "pointer-model",
+      "exp_card": null,
+      "got_skill": "pointer-model",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g11",
+      "prompt": "把结构体直接赋给另一个结构体，成员会一起复制吗",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "struct-and-linked-list",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "g12",
+      "prompt": "fscanf 读文件时怎么判断读到末尾了",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "file-io",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "g13",
+      "prompt": "怎么证明我的程序在边界输入下也不会崩",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "debug-and-test",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "debug-and-test",
+      "verdict": "PASS"
+    },
+    {
+      "case": "g14",
+      "prompt": "形式和实参这两个词老混，到底哪个在定义里",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "glossary",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "glossary",
+      "verdict": "PASS"
+    },
+    {
+      "case": "g15",
+      "prompt": "C 语言怎么做 HTTP 请求",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "g16",
+      "prompt": "帮我写个 C 的贪吃蛇游戏",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    }
+  ]
+}

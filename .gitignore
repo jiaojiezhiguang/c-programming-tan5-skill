@@ -1,0 +1,47 @@
+# === 原著文件（版权保护，禁止提交）===
+*.pdf
+*.docx
+*.epub
+*.mobi
+_book_text.md
+_clean_text.txt
+_ocr_full.txt
+_ocr_log.txt
+_ocr_full.txt.shards/
+
+# 书名相关的任何文件（含空格与括号的原始文件名）
+C程序设计*
+C语言程序设计*
+
+# === 蒸馏中间产物 ===
+.staging-run-*/
+runs/
+.cangjie/runs/
+blind/
+output-run/
+ab-judge/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# === 系统 ===
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# === 编辑器 ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === 临时文件 ===
+*.tmp
+*.bak
+*.log

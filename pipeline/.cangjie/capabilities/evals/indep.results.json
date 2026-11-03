@@ -1,0 +1,46 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "optimal": 17,
+      "suboptimal": 3,
+      "miss": 0
+    },
+    {
+      "run": 2,
+      "optimal": 19,
+      "suboptimal": 1,
+      "miss": 0
+    },
+    {
+      "run": 3,
+      "optimal": 19,
+      "suboptimal": 1,
+      "miss": 0
+    }
+  ],
+  "consistency": {
+    "same": 18,
+    "flaky": 2,
+    "flaky_cases": [
+      {
+        "case": "q09",
+        "sels": [
+          "pointer-model",
+          "program-skeleton",
+          "program-skeleton"
+        ]
+      },
+      {
+        "case": "q13",
+        "sels": [
+          "c-programming-tan5-reference",
+          "program-skeleton",
+          "program-skeleton"
+        ]
+      }
+    ]
+  },
+  "avg_optimal_pct": 91.7,
+  "avg_reachable_pct": 100.0
+}

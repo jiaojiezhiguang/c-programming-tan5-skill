@@ -1,0 +1,12 @@
+{"case_id": "should-trigger-01", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-02", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-03", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-04", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-05", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-06", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "should-trigger-07", "run": 1, "selected_skill": "program-skeleton"}
+{"case_id": "sibling-01", "run": 1, "selected_skill": "array-and-string"}
+{"case_id": "sibling-02", "run": 1, "selected_skill": "pointer-model"}
+{"case_id": "should-not-trigger-01", "run": 1, "selected_skill": "none"}
+{"case_id": "edge-01", "run": 1, "selected_skill": "none"}
+{"case_id": "edge-02", "run": 1, "selected_skill": "none"}

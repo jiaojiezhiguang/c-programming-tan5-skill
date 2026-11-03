@@ -1,0 +1,19 @@
+{
+  "suite_id": "suite.array-and-string",
+  "seed": 42,
+  "train": [
+    "sibling-02",
+    "should-trigger-04",
+    "should-trigger-03",
+    "should-not-trigger-01",
+    "should-trigger-06",
+    "sibling-01",
+    "edge-01"
+  ],
+  "validation": [
+    "should-trigger-05",
+    "should-trigger-01",
+    "should-trigger-02",
+    "edge-02"
+  ]
+}

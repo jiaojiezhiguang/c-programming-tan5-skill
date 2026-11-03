@@ -1,0 +1,41 @@
+MIT License
+
+Copyright (c) 2026 西安交通大学 · jiaojiezhiguang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## 适用范围说明
+
+上述 MIT 许可**仅覆盖本项目的原创部分**：
+
+- 能力卡的组织结构（R/I/A1/A2/E/B 六段）、方法论提炼、边界判定
+- 评测方法、测试用例设计、评测报告
+- 安装/卸载/校验脚本
+- 文档撰写（DIGEST、INDEX、GLOSSARY、BOOK_OVERVIEW）
+
+**不覆盖**：
+
+- 谭浩强《C程序设计（第五版）》的原文内容。每张能力卡 R 段的原文引用，著作权归原作者谭浩强与清华大学出版社所有，按合理引用（quotation for teaching/review，单处 ≤150 字并标注出处）使用。
+- 原书的例题代码、图表、习题。本项目仅转述解题思路，不收录完整代码。
+
+因此：**你可以自由使用、修改、分发本项目的原创部分；但若要商业使用其中引用的原书内容，需另行取得清华大学出版社授权。**
+
+详见 [LICENSE-NOTICE.md](LICENSE-NOTICE.md)。

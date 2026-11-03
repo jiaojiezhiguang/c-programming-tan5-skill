@@ -1,0 +1,20 @@
+{
+  "suite_id": "suite.program-skeleton",
+  "seed": 42,
+  "train": [
+    "sibling-01",
+    "should-trigger-06",
+    "should-trigger-03",
+    "sibling-02",
+    "should-not-trigger-01",
+    "should-trigger-07",
+    "edge-02"
+  ],
+  "validation": [
+    "should-trigger-04",
+    "should-trigger-05",
+    "should-trigger-01",
+    "should-trigger-02",
+    "edge-01"
+  ]
+}

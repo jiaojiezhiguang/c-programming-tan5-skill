@@ -1,0 +1,190 @@
+{
+  "passed": 20,
+  "total": 23,
+  "rows": [
+    {
+      "case": "h01",
+      "exp_skill": "program-skeleton",
+      "exp_card": null,
+      "got_skill": "array-and-string",
+      "got_card": null,
+      "verdict": "FAIL"
+    },
+    {
+      "case": "h02",
+      "exp_skill": "program-skeleton",
+      "exp_card": null,
+      "got_skill": "program-skeleton",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h03",
+      "exp_skill": "algorithm-design",
+      "exp_card": null,
+      "got_skill": "algorithm-design",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h04",
+      "exp_skill": "algorithm-design",
+      "exp_card": null,
+      "got_skill": "algorithm-design",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h05",
+      "exp_skill": "control-flow",
+      "exp_card": null,
+      "got_skill": "control-flow",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h06",
+      "exp_skill": "control-flow",
+      "exp_card": null,
+      "got_skill": "control-flow",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h07",
+      "exp_skill": "array-and-string",
+      "exp_card": null,
+      "got_skill": "array-and-string",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h08",
+      "exp_skill": "array-and-string",
+      "exp_card": null,
+      "got_skill": "array-and-string",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h09",
+      "exp_skill": "function-and-recursion",
+      "exp_card": null,
+      "got_skill": "function-and-recursion",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h10",
+      "exp_skill": "function-and-recursion",
+      "exp_card": null,
+      "got_skill": "function-and-recursion",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h11",
+      "exp_skill": "pointer-model",
+      "exp_card": null,
+      "got_skill": "pointer-model",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h12",
+      "exp_skill": "pointer-model",
+      "exp_card": null,
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "struct-and-linked-list",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "h13",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "struct-and-linked-list",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h14",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "struct-and-linked-list",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h15",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "file-io",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h16",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "file-io",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h17",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "debug-and-test",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "debug-and-test",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h18",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "debug-and-test",
+      "got_skill": "program-skeleton",
+      "got_card": null,
+      "verdict": "FAIL"
+    },
+    {
+      "case": "h19",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "glossary",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "glossary",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h20",
+      "exp_skill": "c-programming-tan5-reference",
+      "exp_card": "glossary",
+      "got_skill": "c-programming-tan5-reference",
+      "got_card": "glossary",
+      "verdict": "PASS"
+    },
+    {
+      "case": "h21",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h22",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "h23",
+      "exp_skill": "none",
+      "exp_card": null,
+      "got_skill": "none",
+      "got_card": null,
+      "verdict": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.control-flow",
+  "target": "control-flow",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "成绩分五个等级，该用 if 还是 switch",
+      "expected": "should_trigger",
+      "expected_behavior": "按离散常量多分支用 switch、范围判断用 if 给选型"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "我的程序卡住不结束了，怀疑死循环",
+      "expected": "should_trigger",
+      "expected_behavior": "检查循环体内是否有推进循环变量的语句"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "输入一个等级结果输出了五行，为什么",
+      "expected": "should_trigger",
+      "expected_behavior": "判定 switch 漏 break 穿透，给补 break 改法"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": "else 到底跟哪个 if 配对，我缩进明明对齐了",
+      "expected": "should_trigger",
+      "expected_behavior": "else 与最近未配对 if 配对、与缩进无关；给加花括号修法"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "for 循环里能不能把三个表达式都省掉",
+      "expected": "should_trigger",
+      "expected_behavior": "说明 for(;;) 等价 while(1)，提醒终止条件与可读性"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "循环体只有一条语句还要不要加花括号",
+      "expected": "should_trigger",
+      "expected_behavior": "语法可省但建议加；属其自查项"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "怎么把一个大问题拆成几个函数",
+      "expected": "sibling",
+      "expected_behavior": "应触发算法设计能力",
+      "sibling_target": "algorithm-design"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "字符串比较为什么结果是乱的",
+      "expected": "sibling",
+      "expected_behavior": "应触发数组与字符串能力",
+      "sibling_target": "array-and-string"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "switch 语句在 Java 里怎么写",
+      "expected": "should_not_trigger",
+      "expected_behavior": "非 C 语言"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "我想让这个循环跑得更快，怎么优化",
+      "expected": "edge_case",
+      "expected_behavior": "性能优化超出原书范围"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "C 语言的循环和 Rust 的 loop 有什么区别",
+      "expected": "edge_case",
+      "expected_behavior": "跨语言比较，超出原书范围，不应激活 C 控制结构能力"
+    }
+  ]
+}

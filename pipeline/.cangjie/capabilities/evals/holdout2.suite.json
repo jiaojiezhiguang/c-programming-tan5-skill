@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.holdout2-final",
+  "target": "c-programming-tan5-pack",
+  "note": "终局验收集，结果如实报告，不再据此修改 description",
+  "trigger_cases": [
+    {
+      "case_id": "anchor",
+      "prompt": "x",
+      "expected": "should_trigger"
+    }
+  ],
+  "holdout_cases": [
+    {
+      "case_id": "g01",
+      "prompt": "终端里 printf 的中文全变成方块和问号了",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "g02",
+      "prompt": "Linux 下编译运行正常，Windows 上中文输出是乱码",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "g03",
+      "prompt": "malloc 申请的空间用完之后忘记 free 会怎样",
+      "expected_skill": "pointer-model",
+      "expected_card": null
+    },
+    {
+      "case_id": "g04",
+      "prompt": "为什么我 fork 出来的子进程里 malloc 还能用",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "g05",
+      "prompt": "一个 .c 文件里我写了两个 main 函数，会报什么错",
+      "expected_skill": "program-skeleton",
+      "expected_card": null
+    },
+    {
+      "case_id": "g06",
+      "prompt": "题目是判断一个数是不是回文数，我不知道该怎么拆步骤",
+      "expected_skill": "algorithm-design",
+      "expected_card": null
+    },
+    {
+      "case_id": "g07",
+      "prompt": "switch 里 default 是不是必须写",
+      "expected_skill": "control-flow",
+      "expected_card": null
+    },
+    {
+      "case_id": "g08",
+      "prompt": "统计字符串里有多少个大写字母，用数组还是直接遍历字符",
+      "expected_skill": "array-and-string",
+      "expected_card": null
+    },
+    {
+      "case_id": "g09",
+      "prompt": "函数里定义的 static 变量为什么下次调用还保留上次的值",
+      "expected_skill": "function-and-recursion",
+      "expected_card": null
+    },
+    {
+      "case_id": "g10",
+      "prompt": "char *p = \"hello\"; 能不能改 p[0]",
+      "expected_skill": "pointer-model",
+      "expected_card": null
+    },
+    {
+      "case_id": "g11",
+      "prompt": "把结构体直接赋给另一个结构体，成员会一起复制吗",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "struct-and-linked-list"
+    },
+    {
+      "case_id": "g12",
+      "prompt": "fscanf 读文件时怎么判断读到末尾了",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "file-io"
+    },
+    {
+      "case_id": "g13",
+      "prompt": "怎么证明我的程序在边界输入下也不会崩",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "debug-and-test"
+    },
+    {
+      "case_id": "g14",
+      "prompt": "形式和实参这两个词老混，到底哪个在定义里",
+      "expected_skill": "c-programming-tan5-reference",
+      "expected_card": "glossary"
+    },
+    {
+      "case_id": "g15",
+      "prompt": "C 语言怎么做 HTTP 请求",
+      "expected_skill": "none",
+      "expected_card": null
+    },
+    {
+      "case_id": "g16",
+      "prompt": "帮我写个 C 的贪吃蛇游戏",
+      "expected_skill": "none",
+      "expected_card": null
+    }
+  ]
+}

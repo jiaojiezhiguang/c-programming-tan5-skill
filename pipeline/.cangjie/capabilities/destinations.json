@@ -1,0 +1,58 @@
+{
+  "_comment": "阶段 1.6 产出：每个 active 能力恰好一个主要去向（promoted_to 或 served_by）。由 cangjie-skill 蒸馏生成。",
+  "bundle_id": "bundle.c-programming-5th-tan",
+  "router_entry": "c-programming-tan5-reference",
+  "single_entry": "c-programming-tan5",
+  "destinations": [
+    {
+      "capability_id": "cap.c-programming-5th.program-skeleton",
+      "destination": "promoted",
+      "promoted_to": "c-program-skeleton"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.algorithm-design",
+      "destination": "promoted",
+      "promoted_to": "c-algorithm-design"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.control-flow",
+      "destination": "promoted",
+      "promoted_to": "c-control-flow"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.array-and-string",
+      "destination": "promoted",
+      "promoted_to": "c-array-and-string"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.function-and-recursion",
+      "destination": "promoted",
+      "promoted_to": "c-function-and-recursion"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.pointer-model",
+      "destination": "promoted",
+      "promoted_to": "c-pointer-model"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.struct-and-linked-list",
+      "destination": "router",
+      "served_by": "c-programming-tan5-reference"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.file-io",
+      "destination": "router",
+      "served_by": "c-programming-tan5-reference"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.debug-and-test",
+      "destination": "router",
+      "served_by": "c-programming-tan5-reference"
+    },
+    {
+      "capability_id": "cap.c-programming-5th.glossary",
+      "destination": "router",
+      "served_by": "c-programming-tan5-reference"
+    }
+  ]
+}

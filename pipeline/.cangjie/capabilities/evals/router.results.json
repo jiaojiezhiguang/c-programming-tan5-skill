@@ -1,0 +1,97 @@
+{
+  "passed": 13,
+  "total": 13,
+  "rows": [
+    {
+      "case": "r-struct-01",
+      "expected": "struct-and-linked-list",
+      "selected": "c-programming-tan5-reference",
+      "card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-struct-02",
+      "expected": "struct-and-linked-list",
+      "selected": "c-programming-tan5-reference",
+      "card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-struct-03",
+      "expected": "struct-and-linked-list",
+      "selected": "c-programming-tan5-reference",
+      "card": "struct-and-linked-list",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-file-01",
+      "expected": "file-io",
+      "selected": "c-programming-tan5-reference",
+      "card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-file-02",
+      "expected": "file-io",
+      "selected": "c-programming-tan5-reference",
+      "card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-file-03",
+      "expected": "file-io",
+      "selected": "c-programming-tan5-reference",
+      "card": "file-io",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-debug-01",
+      "expected": "debug-and-test",
+      "selected": "c-programming-tan5-reference",
+      "card": "debug-and-test",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-debug-02",
+      "expected": "debug-and-test",
+      "selected": "c-programming-tan5-reference",
+      "card": "debug-and-test",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-gloss-01",
+      "expected": "glossary",
+      "selected": "c-programming-tan5-reference",
+      "card": "glossary",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-gloss-02",
+      "expected": "glossary",
+      "selected": "c-programming-tan5-reference",
+      "card": "glossary",
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-neg-01",
+      "expected": "pointer-model",
+      "selected": "pointer-model",
+      "card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-neg-02",
+      "expected": "array-and-string",
+      "selected": "array-and-string",
+      "card": null,
+      "verdict": "PASS"
+    },
+    {
+      "case": "r-neg-03",
+      "expected": "none",
+      "selected": "none",
+      "card": null,
+      "verdict": "PASS"
+    }
+  ]
+}

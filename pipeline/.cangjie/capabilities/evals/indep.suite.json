@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.independent-holdout",
+  "target": "c-programming-tan5-pack",
+  "note": "题目由未看过 skill 描述的独立 agent 生成；答案为事后标注，模糊题设 accept_also",
+  "trigger_cases": [
+    {
+      "case_id": "anchor",
+      "prompt": "x",
+      "expected": "should_trigger"
+    }
+  ],
+  "holdout_cases": [
+    {
+      "case_id": "q01",
+      "prompt": "我照着书上抄的第一个程序，编译的时候报错说 undefined reference to `main`，可我明明写了 main 啊，是不是我哪里打错字了？",
+      "expected_skill": "program-skeleton",
+      "accept_also": []
+    },
+    {
+      "case_id": "q02",
+      "prompt": "for(i=1;i<=n;i++) 和 for(i=1;i<n;i++) 我一直搞不清该用哪个。上次求 1 到 100 的和，我写成 i<100，结果少了 100，这种到底怎么一眼看出来用不用等号啊。",
+      "expected_skill": "control-flow",
+      "accept_also": [
+        "array-and-string"
+      ]
+    },
+    {
+      "case_id": "q03",
+      "prompt": "char name[20]; 然后 scanf(\"%s\", name); 再 printf 出来，后面跟了一串乱七八糟的字符。我数组明明开了 20 个位置，是开小了还是我输入的时候带了啥东西？",
+      "expected_skill": "array-and-string",
+      "accept_also": []
+    },
+    {
+      "case_id": "q04",
+      "prompt": "我写了个交换两个数的函数 void swap(int a,int b)，调完以后主函数里那俩数根本没变。同学说参数要写成指针，可函数里不是已经换过了吗，为啥外面一点动静都没有？",
+      "expected_skill": "function-and-recursion",
+      "accept_also": []
+    },
+    {
+      "case_id": "q05",
+      "prompt": "汉诺塔那个递归我盯着看了半个小时，脑子跟着它转，越转越晕。它到底是怎么在函数里又调用自己的？还有它走到最里面以后是怎么一层层退回来的，我一想到这就卡住。",
+      "expected_skill": "function-and-recursion",
+      "accept_also": []
+    },
+    {
+      "case_id": "q06",
+      "prompt": "int *p = &a; 这里 *p 和 &a 到底啥区别？老师说 *p 就是 a，那我直接写 a 不行吗，干嘛非要绕这么一圈。",
+      "expected_skill": "pointer-model",
+      "accept_also": []
+    },
+    {
+      "case_id": "q07",
+      "prompt": "结构体里想用指针访问成员，我同学写 p->name，我写 (*p).name 也能过，但我写 p.name 就报错。这三种写法到底什么时候该用哪个，我一直是瞎试的。",
+      "expected_skill": "c-programming-tan5-reference",
+      "accept_also": []
+    },
+    {
+      "case_id": "q08",
+      "prompt": "fopen 打开文件以后，fscanf 读半天读不出东西，返回值老是 -1。我路径就写的 \"data.txt\"，文件也确实放在代码同一个文件夹里了，是不是我打开方式那个参数写错了？",
+      "expected_skill": "c-programming-tan5-reference",
+      "accept_also": []
+    },
+    {
+      "case_id": "q09",
+      "prompt": "程序编译一点问题都没有，跑到一半突然就崩了，屏幕上就一行 Segmentation fault，也不告诉我是哪一行。这种到底咋查啊？",
+      "expected_skill": "program-skeleton",
+      "accept_also": [
+        "pointer-model"
+      ]
+    },
+    {
+      "case_id": "q10",
+      "prompt": "老师写程序之前非要我们先画流程图，可我看到题目脑子里代码就出来了，画那几个框感觉纯属浪费时间。考试到底要我画到什么程度，N-S 图和流程图是不是都得会？",
+      "expected_skill": "algorithm-design",
+      "accept_also": []
+    },
+    {
+      "case_id": "q11",
+      "prompt": "老师布置作业，输入全班 30 个同学的成绩，求平均分、最高分，还要数一下不及格的有几个人。我是不是得开好几个数组分别存啊，还是一个数组就够用了？",
+      "expected_skill": "array-and-string",
+      "accept_also": [
+        "algorithm-design"
+      ]
+    },
+    {
+      "case_id": "q12",
+      "prompt": "我想比较两个字符串谁大，直接写 if(s1 > s2) 编译器给我警告，换 strcmp 又要记它返回正数负数还是 0，头都大了。这俩到底差在哪，为啥字符串不能直接比？",
+      "expected_skill": "array-and-string",
+      "accept_also": []
+    },
+    {
+      "case_id": "q13",
+      "prompt": "同一个程序我跑十次，有七八次结果是对的，偶尔蹦出来一个特别离谱的数，重新跑一遍又好了。这是玄学吗，还是我哪里没初始化？",
+      "expected_skill": "program-skeleton",
+      "accept_also": [
+        "c-programming-tan5-reference"
+      ]
+    },
+    {
+      "case_id": "q14",
+      "prompt": "课程设计想做个通讯录，能添加联系人、删除、按名字查找，还要能存到文件里，下次打开程序数据还在。我现在只会数组和循环，这个大概要从哪下手啊，感觉一块一块的全串不起来。",
+      "expected_skill": "algorithm-design",
+      "accept_also": [
+        "c-programming-tan5-reference"
+      ]
+    },
+    {
+      "case_id": "q15",
+      "prompt": "我在自己电脑上编译能跑，发给室友他那边双击就闪退，还提示缺什么 dll，是我程序写错了吗？还是说这跟代码没关系？",
+      "expected_skill": "none",
+      "accept_also": [
+        "program-skeleton"
+      ]
+    },
+    {
+      "case_id": "q16",
+      "prompt": "函数里能不能直接 return 一个数组？我写了 return a; 报错。那我算出来的一组结果想传回主函数，该怎么办，总不能一个一个 return 吧。",
+      "expected_skill": "function-and-recursion",
+      "accept_also": [
+        "pointer-model"
+      ]
+    },
+    {
+      "case_id": "q17",
+      "prompt": "学长说 C 太老了让我直接学 C++，我看 C++ 里输入直接 cin >> 就行，比 scanf 那个 %d 舒服多了。我现在的 C 是不是白学了，要不要赶紧转？",
+      "expected_skill": "none",
+      "accept_also": []
+    },
+    {
+      "case_id": "q18",
+      "prompt": "我想用 VS Code 写 C，网上教程让我装 MinGW，还要配 tasks.json、launch.json，一堆 json 我一个字都看不懂，改了半天还是跑不起来。是不是老老实实用 Dev-C++ 算了？",
+      "expected_skill": "none",
+      "accept_also": []
+    },
+    {
+      "case_id": "q19",
+      "prompt": "我想用 C 写个能跟别人聊天的程序，就两台电脑互相发消息那种，听着挺酷的。这个需要学什么？听说有个叫 socket 的东西，是不是特别难？",
+      "expected_skill": "none",
+      "accept_also": []
+    },
+    {
+      "case_id": "q20",
+      "prompt": "我们下学期要学 Python，我看隔壁班用 Python 三行就把一个文件读完统计好了，C 要 fopen、fscanf、fclose 折腾一大圈。那为啥还要先学 C 啊，学完 C 再学 Python 会不会觉得白折腾？",
+      "expected_skill": "none",
+      "accept_also": [
+        "c-programming-tan5-reference"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.output-quality",
+  "target": "c-programming-tan5-pack",
+  "trigger_cases": [
+    {
+      "case_id": "t-anchor",
+      "prompt": "写一个最简单的C程序",
+      "expected": "should_trigger"
+    }
+  ],
+  "output_cases": [
+    {
+      "case_id": "o1-leap",
+      "prompt": "写一个 C 程序，读入一个年份，判断它是否为闰年并输出结论。请说清判断条件是怎么来的。",
+      "assertions": [
+        {
+          "kind": "contains",
+          "value": "main",
+          "note": "必须有主函数"
+        },
+        {
+          "kind": "regex",
+          "value": "%\\s*4",
+          "note": "被4整除（允许 % 4 写法）"
+        },
+        {
+          "kind": "regex",
+          "value": "%\\s*100",
+          "note": "不被100整除"
+        },
+        {
+          "kind": "regex",
+          "value": "%\\s*400",
+          "note": "被400整除"
+        },
+        {
+          "kind": "regex",
+          "value": "&&",
+          "note": "与条件"
+        },
+        {
+          "kind": "regex",
+          "value": "\\|\\|",
+          "note": "或条件"
+        },
+        {
+          "kind": "contains",
+          "value": "return",
+          "note": "应有返回值"
+        }
+      ]
+    },
+    {
+      "case_id": "o2-bubble",
+      "prompt": "写一个 C 程序，用起泡法把 10 个整数由小到大排序。请解释内层循环的比较次数为什么随趟数递减。",
+      "assertions": [
+        {
+          "kind": "regex",
+          "value": "for\\s*\\(\\s*\\w+\\s*=\\s*0\\s*;\\s*\\w+\\s*<\\s*(9|N\\s*-\\s*1)",
+          "note": "外层 N-1（或 9）趟"
+        },
+        {
+          "kind": "regex",
+          "value": "<\\s*(9\\s*-\\s*\\w+|N\\s*-\\s*1\\s*-\\s*\\w+)",
+          "note": "内层上界随趟数递减"
+        },
+        {
+          "kind": "regex",
+          "value": "a\\[\\s*\\w+\\s*\\+\\s*1\\s*\\]",
+          "note": "相邻比较（下标变量名不限）"
+        },
+        {
+          "kind": "regex",
+          "value": "\\b\\w+\\s*=\\s*a\\[\\s*\\w+\\s*\\]\\s*;|temp\\s*=",
+          "note": "借第三变量交换"
+        },
+        {
+          "kind": "contains",
+          "value": "趟",
+          "note": "应解释趟数概念"
+        }
+      ]
+    },
+    {
+      "case_id": "o3-swap",
+      "prompt": "我写了一个 swap 函数想交换两个整数，可调用之后主函数里的变量没变。为什么？正确写法是什么？",
+      "assertions": [
+        {
+          "kind": "contains",
+          "value": "&a",
+          "note": "应传地址"
+        },
+        {
+          "kind": "regex",
+          "value": "int\\s*\\*\\s*\\w+",
+          "note": "形参应为指针"
+        },
+        {
+          "kind": "contains",
+          "value": "*p",
+          "note": "应解引用赋值"
+        },
+        {
+          "kind": "regex",
+          "value": "值传递|单向",
+          "note": "应指出值传递单向"
+        }
+      ]
+    },
+    {
+      "case_id": "o4-oob",
+      "prompt": "我写了 int a[10]; 然后用 for(i=1;i<=10;i++) a[i]=i; 结果输出不对。问题在哪？",
+      "assertions": [
+        {
+          "kind": "contains",
+          "value": "下标",
+          "note": "指出下标问题"
+        },
+        {
+          "kind": "regex",
+          "value": "a\\[10\\]",
+          "note": "点出 a[10] 不存在"
+        },
+        {
+          "kind": "regex",
+          "value": "i\\s*=\\s*0",
+          "note": "改为从0开始"
+        },
+        {
+          "kind": "regex",
+          "value": "越界|0开始|从0",
+          "note": "说明0基"
+        }
+      ]
+    },
+    {
+      "case_id": "o5-fac",
+      "prompt": "用递归写一个求 n! 的 C 函数，并说明递归必须包含哪两个部分。",
+      "assertions": [
+        {
+          "kind": "regex",
+          "value": "(int|long\\s+long|unsigned\\s+long\\s+long)\\s+\\w+\\s*\\(\\s*int",
+          "note": "函数签名（返回类型可放宽）"
+        },
+        {
+          "kind": "regex",
+          "value": "n\\s*==\\s*1|n\\s*<=\\s*1|n\\s*==\\s*0",
+          "note": "基例判断"
+        },
+        {
+          "kind": "contains",
+          "value": "return",
+          "note": "返回值"
+        },
+        {
+          "kind": "regex",
+          "value": "终止|基例|出口",
+          "note": "应说明终止条件"
+        }
+      ]
+    },
+    {
+      "case_id": "o6-copy",
+      "prompt": "写一个 C 程序把一个文件内容复制到另一个文件，并说明为什么一定要关闭文件。",
+      "assertions": [
+        {
+          "kind": "contains",
+          "value": "fopen",
+          "note": "打开文件"
+        },
+        {
+          "kind": "contains",
+          "value": "fclose",
+          "note": "关闭文件"
+        },
+        {
+          "kind": "regex",
+          "value": "fgetc|fread|fgets",
+          "note": "读取"
+        },
+        {
+          "kind": "regex",
+          "value": "fputc|fwrite|fputs",
+          "note": "写入"
+        },
+        {
+          "kind": "contains",
+          "value": "缓冲区",
+          "note": "应解释缓冲区与丢数据"
+        }
+      ]
+    }
+  ]
+}

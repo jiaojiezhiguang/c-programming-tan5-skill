@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.function-and-recursion",
+  "target": "function-and-recursion",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "我在函数里把变量改了，为什么主函数里还是原值",
+      "expected": "should_trigger",
+      "expected_behavior": "判定值传递单向性，给传指针改法"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "函数声明和函数定义有什么区别，能只写一个吗",
+      "expected": "should_trigger",
+      "expected_behavior": "声明只给原型、定义有函数体；定义在调用后必须先声明"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "递归求阶乘怎么写，终止条件放哪",
+      "expected": "should_trigger",
+      "expected_behavior": "给递归关系+基例两段式，指出收敛行"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": "这题该用递归还是循环",
+      "expected": "should_trigger",
+      "expected_behavior": "按能否一次遍历表达 vs 是否天然同构降阶给判据"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "我把数组传进函数，原数组被改掉了，不是值传递吗",
+      "expected": "should_trigger",
+      "expected_behavior": "数组名传首元素地址，仍是值传递但传的值是地址"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "void 函数里能写 return 吗",
+      "expected": "should_trigger",
+      "expected_behavior": "可以写 return; 提前返回，属合法用法"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "指针变量未初始化会怎样",
+      "expected": "sibling",
+      "expected_behavior": "应触发指针能力",
+      "sibling_target": "pointer-model"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "怎么把一批学生记录按成绩排序",
+      "expected": "sibling",
+      "expected_behavior": "应触发数组/排序能力（struct 为路由能力未单独安装）",
+      "sibling_target": "array-and-string"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "C++ 的函数重载怎么写",
+      "expected": "should_not_trigger",
+      "expected_behavior": "非 C 语言"
+    },
+    {
+      "case_id": "should-trigger-07",
+      "prompt": "递归太慢，怎么改成尾递归优化",
+      "expected": "should_trigger",
+      "expected_behavior": "应激活并说明编译器优化超出原书范围，同时给出循环替代的等价改写思路"
+    },
+    {
+      "case_id": "should-trigger-08",
+      "prompt": "怎么写可变参数函数 printf 那种",
+      "expected": "should_trigger",
+      "expected_behavior": "应激活并说明可变参数超出原书范围，给出 <stdarg.h> 的方向性提示"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "C++ 的 lambda 捕获列表怎么写",
+      "expected": "edge_case",
+      "expected_behavior": "非 C 语言（C++），不应激活"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "怎么把系统的线程栈大小调大",
+      "expected": "edge_case",
+      "expected_behavior": "系统配置而非函数设计，超出原书范围"
+    }
+  ]
+}

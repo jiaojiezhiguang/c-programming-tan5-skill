@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.program-skeleton",
+  "target": "program-skeleton",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "写一个最简单的C程序，输出 Hello World",
+      "expected": "should_trigger",
+      "expected_behavior": "给出完整骨架：#include <stdio.h> / int main() / printf / return 0，并说明每部分作用"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "我这段代码编译报错 error: expected ';' before 'return'，怎么改",
+      "expected": "should_trigger",
+      "expected_behavior": "判定为编译期语法错误，指出缺分号位置并给改后代码"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "程序能编译运行，但输出结果和手算不一样，该往哪查",
+      "expected": "should_trigger",
+      "expected_behavior": "判定为逻辑错误，按公式/赋值方向/运算顺序/边界排查"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": ".c .obj .exe 这三个文件是什么关系",
+      "expected": "should_trigger",
+      "expected_behavior": "说明编辑-编译-连接-运行四步与各自产物，指出连接不可省"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "#include <stdio.h> 这行是干什么的，不写会怎样",
+      "expected": "should_trigger",
+      "expected_behavior": "说明预处理指令作用：引入 printf/scanf 声明信息"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "我的程序有时候能跑有时候崩溃，该从哪查",
+      "expected": "should_trigger",
+      "expected_behavior": "应先分诊：越界→数组、野指针→指针、逻辑错→调试；不直接扑向某一主题"
+    },
+    {
+      "case_id": "should-trigger-07",
+      "prompt": "我想在程序里加注释，// 和 /* */ 有什么区别",
+      "expected": "should_trigger",
+      "expected_behavior": "说明两种注释形式与适用范围；字符串内的不算注释"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "这个冒泡排序的双重循环内层条件该怎么写",
+      "expected": "sibling",
+      "expected_behavior": "应触发数组与排序能力",
+      "sibling_target": "array-and-string"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "指针变量和指针有什么区别",
+      "expected": "sibling",
+      "expected_behavior": "应触发指针能力",
+      "sibling_target": "pointer-model"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "帮我查一下 Python 的 list 怎么排序",
+      "expected": "should_not_trigger",
+      "expected_behavior": "非 C 语言，命中 out_of_scope"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "我这段 Python 代码报错了，帮我看看",
+      "expected": "edge_case",
+      "expected_behavior": "看似『报错』但语言非 C，不应激活 C 能力"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "C 语言能不能做图形界面",
+      "expected": "edge_case",
+      "expected_behavior": "超出原书范围，不应激活骨架能力"
+    }
+  ]
+}

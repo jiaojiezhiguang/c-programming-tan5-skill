@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "suite_id": "suite.pointer-model",
+  "target": "pointer-model",
+  "split_seed": 42,
+  "train_ratio": 0.6,
+  "trigger_cases": [
+    {
+      "case_id": "should-trigger-01",
+      "prompt": "指针到底是什么，我一直没搞懂",
+      "expected": "should_trigger",
+      "expected_behavior": "按地址层+类型层拆解，区分指针/指针变量/基类型"
+    },
+    {
+      "case_id": "should-trigger-02",
+      "prompt": "*p 和 &a 分别是什么意思",
+      "expected": "should_trigger",
+      "expected_behavior": "& 取地址、* 解引用；区分定义语句中 * 的标记作用"
+    },
+    {
+      "case_id": "should-trigger-03",
+      "prompt": "为什么定义指针要指定基类型，p+1 为什么加了4",
+      "expected": "should_trigger",
+      "expected_behavior": "带类型的地址与指针算术按基类型步进"
+    },
+    {
+      "case_id": "should-trigger-04",
+      "prompt": "程序随机崩溃，怀疑是野指针",
+      "expected": "should_trigger",
+      "expected_behavior": "检查是否未初始化就解引用，区分未赋值/NULL/有效三态"
+    },
+    {
+      "case_id": "should-trigger-05",
+      "prompt": "函数传指针为什么能改实参，不是值传递吗",
+      "expected": "should_trigger",
+      "expected_behavior": "传的「值」是地址，函数内通过 *p 改目标单元"
+    },
+    {
+      "case_id": "should-trigger-06",
+      "prompt": "数组名算不算指针",
+      "expected": "should_trigger",
+      "expected_behavior": "数组名是首元素地址（指针），但不是指针变量，不能赋值"
+    },
+    {
+      "case_id": "sibling-01",
+      "prompt": "数组下标从0开始还是1开始",
+      "expected": "sibling",
+      "expected_behavior": "应触发数组能力",
+      "sibling_target": "array-and-string"
+    },
+    {
+      "case_id": "sibling-02",
+      "prompt": "一维数组的数组名能不能整体赋值给另一个数组",
+      "expected": "sibling",
+      "expected_behavior": "应触发数组能力（数组名不可整体赋值/长度语义）",
+      "sibling_target": "array-and-string"
+    },
+    {
+      "case_id": "should-not-trigger-01",
+      "prompt": "C++ 的智能指针 unique_ptr 怎么用",
+      "expected": "should_not_trigger",
+      "expected_behavior": "非 C 语言（C++）"
+    },
+    {
+      "case_id": "should-trigger-07",
+      "prompt": "怎么避免指针造成的内存泄漏",
+      "expected": "should_trigger",
+      "expected_behavior": "应激活并说明需配合 free 与所有权设计，原书仅覆盖 malloc 基础"
+    },
+    {
+      "case_id": "edge-01",
+      "prompt": "多线程共享指针安全吗",
+      "expected": "edge_case",
+      "expected_behavior": "并发超出原书范围"
+    },
+    {
+      "case_id": "edge-02",
+      "prompt": "怎么用 mmap 把文件映射到内存",
+      "expected": "edge_case",
+      "expected_behavior": "系统调用与虚拟内存，超出原书范围"
+    }
+  ]
+}

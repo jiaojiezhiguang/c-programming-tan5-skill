@@ -1,0 +1,40 @@
+{
+  "tool": "cangjie-tools v2.5.0",
+  "published_hashes": {
+    "SKILL.md": "62898e742c2b57c4dd022f973ef39e9c703fd231747d36532969e3207be619d6",
+    "references/capabilities/algorithm-design.md": "3422d7c8f088a059f17bb0538deda69e0ad817494269051d4fdb5a2d26a3c1a1",
+    "references/capabilities/array-and-string.md": "89c6ea45e9ac9955f6b22bf478bb6db741ffbcdd80049540f93b3c0563ef2c22",
+    "references/capabilities/control-flow.md": "ef76570b23d74b456e96393cc310e29aff9454fc9a3038e460384f48b109d2dc",
+    "references/capabilities/debug-and-test.md": "c09294885f3b6343950662933b7d35f36769a9e7de05d7257a228412ab7bb402",
+    "references/capabilities/file-io.md": "1171300b166a126c7374f8b2f0e3c5a4e73bff39624442c6ab930389cfd69966",
+    "references/capabilities/function-and-recursion.md": "f7db457accd49057b4936e4cb6c470c8fd98e0e7435a2e9b6ca00c7ce2377b06",
+    "references/capabilities/glossary.md": "ff26a2cc7cde659776fa497e7bd5d913b4846aa86c572581c79271fa7508e0d1",
+    "references/capabilities/pointer-model.md": "67c9e85bfd7387527af3973f01ed842e1ad3bb1ff6349dda6e0329da519340ea",
+    "references/capabilities/program-skeleton.md": "929602cc8725a57c780dcf1891e3785ed0b6c901b6c6395c4eea78cc264f8e24",
+    "references/capabilities/struct-and-linked-list.md": "98b92763b9a85fce875fe26110b070fa8492462b4449d47801564085c6a3d705",
+    "references/capability-index.md": "faff35d85362a7186e97ee233febadff45b2dfdbe8b189727ed60783a3067d55",
+    "references/cheatsheet.md": "f08178eae8ce767a3314e45744bcd1ae0855a54dd43d6d7acdf618eb9ab173eb",
+    "references/glossary.md": "9a54fe138d9ad226d06438db1eac2c77dc48ed450aca7606cceea958c935b382",
+    "references/overview.md": "118344284cf824cde3e9b2a7ea40eb9f971c458ba3b5a13dc44392aca5da0085"
+  },
+  "note": "update/重编译前比对 published_hashes；检测到本地手改不得静默覆盖",
+  "bundle_id": "bundle.c-programming-5th-tan",
+  "bundle_sha256": "7df8693bfda79c9a60cff0eb0a575dce8739c1cbdb23bd8efc94ee9848f2519d",
+  "variant": "single",
+  "run_id": "run-20261103-203502-b42cfa",
+  "decision": {
+    "schema_version": 1,
+    "requested": "single",
+    "selected": "single",
+    "decision_policy": "single-first-v1",
+    "skill_budget": 8,
+    "promoted_count": 6,
+    "capability_count": 10,
+    "reasons": [
+      "用户显式选择 single，auto 决策器不覆盖用户选择"
+    ],
+    "alternative": "compact pack（1 个来源路由入口 + 6 个晋级 Skill，共 7 个可发现入口）",
+    "user_confirmed": true,
+    "preserve_strategy_on_update": true
+  }
+}
